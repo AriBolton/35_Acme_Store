@@ -50,8 +50,8 @@ server.get("/api/users/:id/favorites", async (req, res, next) => {
 server.post("/api/users/:id/favorites", async (req, res, next) => {
     try {
         const favorite = await createFavorite(req.params.id, req.body.product_id);
-        //res.send(favorite);
-        res.status(201).send(favorite);
+        res.send(favorite);
+        res.sendStatus(201);
     } catch (error) {
         next(error);
     }
